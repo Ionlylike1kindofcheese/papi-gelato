@@ -8,7 +8,7 @@ phase2 = False
 flavourquestions = False
 bolnummer = 1
 
-print("Welkom bij Papi Gelato. Je mag alle smaken kiezen zolang het maar vanille ijs is.")
+print("Welkom bij Papi Gelato")
 
 while programcompletion == False:
     while phase1 == False:
