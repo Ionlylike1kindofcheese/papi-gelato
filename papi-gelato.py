@@ -1,5 +1,5 @@
 def showNotunderstood():
-    print("Sorry, dat snap ik niet")
+    print("Sorry dat is geen optie die we aanbieden...")
 
 
 programcompletion = False
@@ -38,14 +38,15 @@ while programcompletion == False:
         hoeveelliter = int(input("Hoeveel liter ijs wilt u? "))
 
         while liternummer <= hoeveelliter:
-            litersmaak = input("Welke smaak wilt u voor liter nummer " + str(liternummer) + "? A) Aardbei, C) Chocolade, M) Munt of V) Vanille? ")
+            litersmaak = input("Welke smaak wilt u voor liter nummer " + str(liternummer) + "? A) Aardbei, C) Chocolade of V) Vanille? ")
 
-            if litersmaak == "A" or litersmaak == "C" or litersmaak == "M" or litersmaak == "V":
+            if litersmaak == "A" or litersmaak == "C" or litersmaak == "V":
                 liternummer = liternummer + 1
             else:
                 showNotunderstood()
         else:
             programcompletion = True
+            print("")
 
     elif bussinesorder == "1":
         while phase1 == False:
@@ -89,20 +90,12 @@ while programcompletion == False:
             
         while flavourquestions == False:
             if bolnummer <= int(aantalbollen):
-                askflavour = input("Welke smaak wilt u voor bolletje nummer " + str(bolnummer) + "? A) Aardbei, C) Chocolade, M) Munt of V) Vanille? ")
-                if askflavour == "A":
-                    flavour = "aardbei"
-                elif askflavour == "C":
-                    flavour = "chocolade"
-                elif askflavour == "M":
-                    flavour = "munt"
-                elif askflavour == "V":
-                    flavour = "vanille"
+                askflavour = input("Welke smaak wilt u voor bolletje nummer " + str(bolnummer) + "? A) Aardbei, C) Chocolade of V) Vanille? ")
+         
+                if askflavour == "A" or askflavour == "C" or askflavour == "V":
+                    bolnummer = bolnummer + 1
                 else:
                     showNotunderstood()
-                
-                if askflavour == "A" or askflavour == "C" or askflavour == "M" or askflavour == "V":
-                    bolnummer = bolnummer + 1
             else:
                 flavourquestions = True
                 print("")
@@ -152,7 +145,7 @@ while programcompletion == False:
 
 if programcompletion == True:
     if bussinesorder == "1":
-        prijsbollen = totaalaantalbollen * 1.10
+        prijsbollen = totaalaantalbollen * 0.95
         prijshoorntjes = aantalhoorntjes * 1.25
         prijsbakjes = aantalbakjes * 0.75
         prijsslagroomtoppings = aantalslagroomtoppings * 0.50
@@ -161,11 +154,11 @@ if programcompletion == True:
         caramelsausbakprijs = aantalcaramelsausbaktoppings * 0.90
     elif bussinesorder == "2":
         literprijs = hoeveelliter * 9.80
-        btw = literprijs / 100 * 9
+        btw = literprijs / 100 * 6
     print('---------["Papi Gelatto"]---------')
     print("")
     if bussinesorder == "1":
-        print("Bolletje     " + str(totaalaantalbollen) + " x €1.10 = €" + str(round(prijsbollen, 3)))
+        print("Bolletje     " + str(totaalaantalbollen) + " x €0.95 = €" + str(round(prijsbollen, 3)))
         if aantalhoorntjes >= 1:
             print("horrentje    " + str(aantalhoorntjes) + " x €1.25 = €" + str(round(prijshoorntjes, 2)))
         if aantalbakjes >= 1:
@@ -185,4 +178,4 @@ if programcompletion == True:
         print("Liter       " + str(hoeveelliter) + " x €9.80 = " + str(round(literprijs, 2)))
         print("                      ---------- +")
         print("Totaal                = " + str(round(literprijs, 2)))
-        print("BTW (9%)              = " + str(round(btw, 2)))
+        print("BTW (6%)              = " + str(round(btw, 2)))
